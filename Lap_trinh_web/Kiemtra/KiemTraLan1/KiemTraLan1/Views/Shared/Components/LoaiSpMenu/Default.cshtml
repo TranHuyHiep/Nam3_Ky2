@@ -1,0 +1,6 @@
+﻿@model IEnumerable<TLoaiSp>
+@foreach(var item in Model)
+{
+    var getUrl = "https://localhost:44384/api/productapi/" + item.MaLoai.Trim();
+    <li><a style="cursor:pointer" onclick="showProductByCategory('@getUrl')">@item.Loai</a></li>
+}

@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\resources\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\style.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_fonts.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_mixin.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_responsive.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\03465f23f19c9b31771cc8acec61089cccc1845c\_theme_color.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\475e2dc6ecb7bd594adf3c7ef23377f13ce5685a\style.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\475e2dc6ecb7bd594adf3c7ef23377f13ce5685a\_fonts.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\475e2dc6ecb7bd594adf3c7ef23377f13ce5685a\_mixin.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\475e2dc6ecb7bd594adf3c7ef23377f13ce5685a\_responsive.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\475e2dc6ecb7bd594adf3c7ef23377f13ce5685a\_theme_color.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\92c2ff24315db15914b9d82f622cf290dd0a1856\style.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\92c2ff24315db15914b9d82f622cf290dd0a1856\_fonts.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\92c2ff24315db15914b9d82f622cf290dd0a1856\_mixin.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\92c2ff24315db15914b9d82f622cf290dd0a1856\_responsive.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\92c2ff24315db15914b9d82f622cf290dd0a1856\_theme_color.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\style.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_mixin.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_responsive.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_theme_color.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\9568d30ed5d2cebc2ad5df4154c8df8099b75c0b\_variables.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\style.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_mixin.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_responsive.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_theme_color.scssc" />
+    <None Include="wwwroot\resources\.sass-cache\b687762b7660b1f71ae40e600add14c590cfdbc7\_variables.scssc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+  </ItemGroup>
+
+</Project>

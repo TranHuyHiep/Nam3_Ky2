@@ -1,0 +1,3 @@
+﻿  ListBoxExample.cpp
+E:\utc_dai_cuong\nam3\Nam3_KyII\THH\Lap_trinh_su_dung_api\buoi7\ListBoxExample\ListBoxExample\ListBoxExample.cpp(154,48): warning C4244: '=': conversion from 'LRESULT' to 'int', possible loss of data
+  ListBoxExample.vcxproj -> E:\utc_dai_cuong\nam3\Nam3_KyII\THH\Lap_trinh_su_dung_api\buoi7\ListBoxExample\x64\Debug\ListBoxExample.exe

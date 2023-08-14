@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutTool.cshtml";
+}
+@model List<Cauthu>
+
+@foreach (var item in Model)
+{
+    <div class="prod_box">
+        <div class="center_prod_box">
+            <div class="product_title"><a href="#">@item.HoVaTen</a></div>
+            <div class="product_img"><a href="#"><img width="100px" height="100px" src="@Url.Content("../AnhCauThu/"+item.CauThuId.Trim()+".jpeg")" alt="" border="0" /></a></div>
+            <div class="prod_price"><span class="reduce">@item.QuocTich</span> <span class="price">@item.SoAo</span></div>
+        </div>
+        <div class="prod_details_tab"> <a href="#" class="prod_buy">Add to Cart</a> <a href="#" class="prod_details">@item.CauLacBo</a> </div>
+    </div>
+}
+

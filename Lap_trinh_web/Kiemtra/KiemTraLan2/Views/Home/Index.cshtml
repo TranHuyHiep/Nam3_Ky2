@@ -1,0 +1,38 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+@model List<Cauthu>
+@foreach(var item in Model)
+{
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+            <!-- Product Image -->
+            <div class="product-img">
+                <a href="shop-details.html"><img src="@Url.Content("../images/" + item.Anh)" width="150" height="300" alt=""></a>
+                <!-- Product Tag -->
+                <div class="product-tag">
+                    <a href="#">Hot</a>
+                </div>
+                <div class="product-meta d-flex">
+                    <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                    <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                    <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                </div>
+            </div>
+            <!-- Product Info -->
+            <disv class="product-info mt-15 text-center">
+                <a href="shop-details.html">
+                    <p>@item.HoVaTen</p>
+                </a>
+                <a asp-action="suaCauThu" asp-route-cauThuId="@item.CauThuId">Edit</a>
+            </disv>
+        </div>
+    </div>
+
+}
+
+
+

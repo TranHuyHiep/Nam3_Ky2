@@ -1,0 +1,35 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DisplText2 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP65.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/DisplText2.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Duan Data\GTVT\Giao_trinh\Windows_programming\Chuong_6___Ban_phim\DisplText2\DisplText2.C"
+]
+Creating command line "cl.exe @C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP65.tmp" 
+Creating temporary file "C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP66.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/DisplText2.pdb" /debug /machine:I386 /out:"Debug/DisplText2.exe" /pdbtype:sept 
+".\Debug\DisplText2.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP66.tmp"
+<h3>Output Window</h3>
+Compiling...
+DisplText2.C
+d:\duan data\gtvt\giao_trinh\windows_programming\chuong_6___ban_phim\displtext2\displtext2.c(61) : warning C4101: 'szBuffer' : unreferenced local variable
+d:\duan data\gtvt\giao_trinh\windows_programming\chuong_6___ban_phim\displtext2\displtext2.c(63) : warning C4101: 'max' : unreferenced local variable
+d:\duan data\gtvt\giao_trinh\windows_programming\chuong_6___ban_phim\displtext2\displtext2.c(63) : warning C4101: 'min' : unreferenced local variable
+Linking...
+
+
+
+<h3>Results</h3>
+DisplText2.exe - 0 error(s), 3 warning(s)
+</pre>
+</body>
+</html>

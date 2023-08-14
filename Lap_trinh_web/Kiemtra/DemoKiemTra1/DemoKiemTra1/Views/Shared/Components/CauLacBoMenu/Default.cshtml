@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Caulacbo>
+<ul class="left_menu">
+    @foreach (var item in Model)
+    {
+        var getUrl = "https://localhost:44333/api/cauthuapi/" + item.CauLacBoId.Trim();
+        <li class="odd"><a style="cursor:pointer" onclick="showProductByCategory('@getUrl')">@item.TenClb</a></li>
+    }
+    
+</ul>
+
+<script>
+    function showProductByCategory(getUrl) {
+        var str = '';
+        $.ajax({
+            type: 'GET',
+            url: getUrl,
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (key, val) {
+                    var linkImage = "../AnhCauThu/" + val.cauThuId.trim() + ".jpeg";
+                    str += `
+                            <div class="prod_box">
+                                <div class="center_prod_box">
+                                        <div class="product_title"><a href="#">${val.hoVaTen}</a></div>
+                                    <div class="product_img"><a href="#"><img width="100px" height="100px" src="${linkImage}")" alt="" border="0" /></a></div>
+                                            <div class="prod_price"><span class="reduce">${val.quocTich}</span> <span class="price">${val.soAo}</span></div>
+                                </div>
+                                    <div class="prod_details_tab"> <a href="#" class="prod_buy">Add to Cart</a> <a href="#" class="prod_details">${val.cauLacBoId}</a> </div>
+                            </div>`;
+                });
+                $('#displayProducts').html(str);
+            },
+            error: function (er) {
+                alert(er.responseText);
+            }
+        });
+    }
+</script>

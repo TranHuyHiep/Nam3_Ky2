@@ -1,0 +1,1172 @@
+TDIR)\TabOrdDg.obj"
+	-@erase "$(INTDIR)\TabOrdDg.sbr"
+	-@erase "$(INTDIR)\TCDoc.obj"
+	-@erase "$(INTDIR)\TCDoc.sbr"
+	-@erase "$(INTDIR)\TCItem.obj"
+	-@erase "$(INTDIR)\TCItem.sbr"
+	-@erase "$(INTDIR)\TCSplit.obj"
+	-@erase "$(INTDIR)\TCSplit.sbr"
+	-@erase "$(INTDIR)\TCTrace.obj"
+	-@erase "$(INTDIR)\TCTrace.sbr"
+	-@erase "$(INTDIR)\TCView.obj"
+	-@erase "$(INTDIR)\TCView.sbr"
+	-@erase "$(INTDIR)\TstCon.obj"
+	-@erase "$(INTDIR)\TstCon.pch"
+	-@erase "$(INTDIR)\TstCon.res"
+	-@erase "$(INTDIR)\TstCon.sbr"
+	-@erase "$(INTDIR)\TstCon.tlb"
+	-@erase "$(INTDIR)\TypeAttr.obj"
+	-@erase "$(INTDIR)\TypeAttr.sbr"
+	-@erase "$(INTDIR)\VarUtils.obj"
+	-@erase "$(INTDIR)\VarUtils.sbr"
+	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(OUTDIR)\TstCon.bsc"
+	-@erase "$(OUTDIR)\TstCon32.exe"
+	-@erase "$(OUTDIR)\TstCon32.ilk"
+	-@erase "$(OUTDIR)\TstCon32.pdb"
+	-@erase ".\TstCon_i.c"
+	-@erase ".\TstConIF.h"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+CPP=cl.exe
+CPP_PROJ=/nologo /MDd /W4 /Gm /GX /ZI /Od /I "TCProps\Debug" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /FR"$(INTDIR)\\" /Fp"$(INTDIR)\TstCon.pch" /Yu"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /win32 
+RSC=rc.exe
+RSC_PROJ=/l 0x409 /fo"$(INTDIR)\TstCon.res" /d "_DEBUG" /d "_AFXDLL" 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\TstCon.bsc" 
+BSC32_SBRS= \
+	"$(INTDIR)\AProp.sbr" \
+	"$(INTDIR)\APropDg.sbr" \
+	"$(INTDIR)\BindHost.sbr" \
+	"$(INTDIR)\ComCatDg.sbr" \
+	"$(INTDIR)\ConInfDg.sbr" \
+	"$(INTDIR)\EvLogPg.sbr" \
+	"$(INTDIR)\ExcepInf.sbr" \
+	"$(INTDIR)\ExtCtl.sbr" \
+	"$(INTDIR)\FeatPg.sbr" \
+	"$(INTDIR)\IFacesPg.sbr" \
+	"$(INTDIR)\InsCtlDg.sbr" \
+	"$(INTDIR)\Log.sbr" \
+	"$(INTDIR)\LogDg.sbr" \
+	"$(INTDIR)\MacroCB.sbr" \
+	"$(INTDIR)\MacroDB.sbr" \
+	"$(INTDIR)\MacroDg.sbr" \
+	"$(INTDIR)\MainFrm.sbr" \
+	"$(INTDIR)\MethInfo.sbr" \
+	"$(INTDIR)\MethodDg.sbr" \
+	"$(INTDIR)\MFileWnd.sbr" \
+	"$(INTDIR)\NewAPDg.sbr" \
+	"$(INTDIR)\OutWndVw.sbr" \
+	"$(INTDIR)\PBagDg.sbr" \
+	"$(INTDIR)\PChngPg.sbr" \
+	"$(INTDIR)\PEdReqPg.sbr" \
+	"$(INTDIR)\PropBag.sbr" \
+	"$(INTDIR)\RegCtlDg.sbr" \
+	"$(INTDIR)\Script.sbr" \
+	"$(INTDIR)\ScrMngr.sbr" \
+	"$(INTDIR)\ServPg.sbr" \
+	"$(INTDIR)\StdAfx.sbr" \
+	"$(INTDIR)\TabOrdDg.sbr" \
+	"$(INTDIR)\TCDoc.sbr" \
+	"$(INTDIR)\TCItem.sbr" \
+	"$(INTDIR)\TCSplit.sbr" \
+	"$(INTDIR)\TCTrace.sbr" \
+	"$(INTDIR)\TCView.sbr" \
+	"$(INTDIR)\TstCon.sbr" \
+	"$(INTDIR)\TypeAttr.sbr" \
+	"$(INTDIR)\VarUtils.sbr"
+
+"$(OUTDIR)\TstCon.bsc" : "$(OUTDIR)" $(BSC32_SBRS)
+    $(BSC32) @<<
+  $(BSC32_FLAGS) $(BSC32_SBRS)
+<<
+
+LINK32=link.exe
+LINK32_FLAGS=shlwapi.lib /nologo /subsystem:windows /incremental:yes /pdb:"$(OUTDIR)\TstCon32.pdb" /debug /machine:I386 /out:"$(OUTDIR)\TstCon32.exe" /pdbtype:sept 
+LINK32_OBJS= \
+	"$(INTDIR)\AProp.obj" \
+	"$(INTDIR)\APropDg.obj" \
+	"$(INTDIR)\BindHost.obj" \
+	"$(INTDIR)\ComCatDg.obj" \
+	"$(INTDIR)\ConInfDg.obj" \
+	"$(INTDIR)\EvLogPg.obj" \
+	"$(INTDIR)\ExcepInf.obj" \
+	"$(INTDIR)\ExtCtl.obj" \
+	"$(INTDIR)\FeatPg.obj" \
+	"$(INTDIR)\IFacesPg.obj" \
+	"$(INTDIR)\InsCtlDg.obj" \
+	"$(INTDIR)\Log.obj" \
+	"$(INTDIR)\LogDg.obj" \
+	"$(INTDIR)\MacroCB.obj" \
+	"$(INTDIR)\MacroDB.obj" \
+	"$(INTDIR)\MacroDg.obj" \
+	"$(INTDIR)\MainFrm.obj" \
+	"$(INTDIR)\MethInfo.obj" \
+	"$(INTDIR)\MethodDg.obj" \
+	"$(INTDIR)\MFileWnd.obj" \
+	"$(INTDIR)\NewAPDg.obj" \
+	"$(INTDIR)\OutWndVw.obj" \
+	"$(INTDIR)\PBagDg.obj" \
+	"$(INTDIR)\PChngPg.obj" \
+	"$(INTDIR)\PEdReqPg.obj" \
+	"$(INTDIR)\PropBag.obj" \
+	"$(INTDIR)\RegCtlDg.obj" \
+	"$(INTDIR)\Script.obj" \
+	"$(INTDIR)\ScrMngr.obj" \
+	"$(INTDIR)\ServPg.obj" \
+	"$(INTDIR)\StdAfx.obj" \
+	"$(INTDIR)\TabOrdDg.obj" \
+	"$(INTDIR)\TCDoc.obj" \
+	"$(INTDIR)\TCItem.obj" \
+	"$(INTDIR)\TCSplit.obj" \
+	"$(INTDIR)\TCTrace.obj" \
+	"$(INTDIR)\TCView.obj" \
+	"$(INTDIR)\TstCon.obj" \
+	"$(INTDIR)\TypeAttr.obj" \
+	"$(INTDIR)\VarUtils.obj" \
+	"$(INTDIR)\TstCon.res" \
+	".\TCProps\Debug\TCProps.lib"
+
+"$(OUTDIR)\TstCon32.exe" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+SOURCE="$(InputPath)"
+PostBuild_Desc=Building help file...
+DS_POSTBUILD_DEP=$(INTDIR)\postbld.dep
+
+ALL : $(DS_POSTBUILD_DEP)
+
+# Begin Custom Macros
+OutDir=.\Debug
+# End Custom Macros
+
+$(DS_POSTBUILD_DEP) : "TCProps - Win32 Debug" "$(OUTDIR)\TstCon32.exe" ".\TstCon_i.c" "$(OUTDIR)\TstCon.bsc"
+   makehelp.bat
+	echo Helper for Post-build step > "$(DS_POSTBUILD_DEP)"
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("TstCon.dep")
+!INCLUDE "TstCon.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "TstCon.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "TstCon - Win32 Release" || "$(CFG)" == "TstCon - Win32 Debug"
+SOURCE=.\AProp.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\AProp.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\AProp.obj"	"$(INTDIR)\AProp.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\APropDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\APropDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\APropDg.obj"	"$(INTDIR)\APropDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\BindHost.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\BindHost.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\BindHost.obj"	"$(INTDIR)\BindHost.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\ComCatDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\ComCatDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\ComCatDg.obj"	"$(INTDIR)\ComCatDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\ConInfDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\ConInfDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\ConInfDg.obj"	"$(INTDIR)\ConInfDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\EvLogPg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\EvLogPg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\EvLogPg.obj"	"$(INTDIR)\EvLogPg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\ExcepInf.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\ExcepInf.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\ExcepInf.obj"	"$(INTDIR)\ExcepInf.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\ExtCtl.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\ExtCtl.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\ExtCtl.obj"	"$(INTDIR)\ExtCtl.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\FeatPg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\FeatPg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\FeatPg.obj"	"$(INTDIR)\FeatPg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\IFacesPg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\IFacesPg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\IFacesPg.obj"	"$(INTDIR)\IFacesPg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\InsCtlDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\InsCtlDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\InsCtlDg.obj"	"$(INTDIR)\InsCtlDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\Log.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\Log.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\Log.obj"	"$(INTDIR)\Log.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\LogDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\LogDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\LogDg.obj"	"$(INTDIR)\LogDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\MacroCB.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\MacroCB.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\MacroCB.obj"	"$(INTDIR)\MacroCB.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\MacroDB.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\MacroDB.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\MacroDB.obj"	"$(INTDIR)\MacroDB.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\MacroDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\MacroDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\MacroDg.obj"	"$(INTDIR)\MacroDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\MainFrm.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\MainFrm.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\MainFrm.obj"	"$(INTDIR)\MainFrm.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\MethInfo.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\MethInfo.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\MethInfo.obj"	"$(INTDIR)\MethInfo.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\MethodDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\MethodDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\MethodDg.obj"	"$(INTDIR)\MethodDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\MFileWnd.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\MFileWnd.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\MFileWnd.obj"	"$(INTDIR)\MFileWnd.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\NewAPDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\NewAPDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\NewAPDg.obj"	"$(INTDIR)\NewAPDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\OutWndVw.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\OutWndVw.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\OutWndVw.obj"	"$(INTDIR)\OutWndVw.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\PBagDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\PBagDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\PBagDg.obj"	"$(INTDIR)\PBagDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\PChngPg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\PChngPg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\PChngPg.obj"	"$(INTDIR)\PChngPg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\PEdReqPg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\PEdReqPg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\PEdReqPg.obj"	"$(INTDIR)\PEdReqPg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\PropBag.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\PropBag.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\PropBag.obj"	"$(INTDIR)\PropBag.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\RegCtlDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\RegCtlDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\RegCtlDg.obj"	"$(INTDIR)\RegCtlDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\Script.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\Script.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\Script.obj"	"$(INTDIR)\Script.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\ScrMngr.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\ScrMngr.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\ScrMngr.obj"	"$(INTDIR)\ScrMngr.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\ServPg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\ServPg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\ServPg.obj"	"$(INTDIR)\ServPg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\StdAfx.cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+CPP_SWITCHES=/nologo /MD /W4 /GX /O2 /I "TCProps\Release" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"$(INTDIR)\TstCon.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\TstCon.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+CPP_SWITCHES=/nologo /MDd /W4 /Gm /GX /ZI /Od /I "TCProps\Debug" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /FR"$(INTDIR)\\" /Fp"$(INTDIR)\TstCon.pch" /Yc"stdafx.h" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /FD /c 
+
+"$(INTDIR)\StdAfx.obj"	"$(INTDIR)\StdAfx.sbr"	"$(INTDIR)\TstCon.pch" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\TabOrdDg.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TabOrdDg.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TabOrdDg.obj"	"$(INTDIR)\TabOrdDg.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\TCDoc.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TCDoc.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TCDoc.obj"	"$(INTDIR)\TCDoc.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\TCItem.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TCItem.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TCItem.obj"	"$(INTDIR)\TCItem.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\TCSplit.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TCSplit.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TCSplit.obj"	"$(INTDIR)\TCSplit.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\TCTrace.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TCTrace.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TCTrace.obj"	"$(INTDIR)\TCTrace.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\TCView.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TCView.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TCView.obj"	"$(INTDIR)\TCView.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\TstCon.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TstCon.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TstCon.obj"	"$(INTDIR)\TstCon.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\TstCon.odl
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+MTL_SWITCHES=/nologo /D "NDEBUG" /tlb "$(OUTDIR)\TstCon.tlb" /h "TstConIF.H" /iid "TstCon_i.C" /win32 
+
+"$(OUTDIR)\TstCon.tlb"	".\TstConIF.h"	".\TstCon_i.c" : $(SOURCE) "$(OUTDIR)"
+	$(MTL) @<<
+  $(MTL_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+MTL_SWITCHES=/nologo /D "_DEBUG" /tlb "$(OUTDIR)\TstCon.tlb" /h "TstConIF.H" /iid "TstCon_i.C" /win32 
+
+"$(OUTDIR)\TstCon.tlb"	".\TstConIF.h"	".\TstCon_i.c" : $(SOURCE) "$(OUTDIR)"
+	$(MTL) @<<
+  $(MTL_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\TstCon.rc
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TstCon.res" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.tlb"
+	$(RSC) /l 0x409 /fo"$(INTDIR)\TstCon.res" /i "Release" /i "TCProps\Release" /d "NDEBUG" /d "_AFXDLL" $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TstCon.res" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.tlb"
+	$(RSC) /l 0x409 /fo"$(INTDIR)\TstCon.res" /i "Debug" /i "TCProps\Debug" /d "_DEBUG" /d "_AFXDLL" $(SOURCE)
+
+
+!ENDIF 
+
+SOURCE=.\TypeAttr.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\TypeAttr.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\TypeAttr.obj"	"$(INTDIR)\TypeAttr.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+SOURCE=.\VarUtils.Cpp
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+
+"$(INTDIR)\VarUtils.obj" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+
+"$(INTDIR)\VarUtils.obj"	"$(INTDIR)\VarUtils.sbr" : $(SOURCE) "$(INTDIR)" "$(INTDIR)\TstCon.pch" ".\TstConIF.h"
+
+
+!ENDIF 
+
+!IF  "$(CFG)" == "TstCon - Win32 Release"
+
+"TCProps - Win32 Release" : 
+   cd ".\TCProps"
+   $(MAKE) /$(MAKEFLAGS) /F .\TCProps.mak CFG="TCProps - Win32 Release" 
+   cd ".."
+
+"TCProps - Win32 ReleaseCLEAN" : 
+   cd ".\TCProps"
+   $(MAKE) /$(MAKEFLAGS) /F .\TCProps.mak CFG="TCProps - Win32 Release" RECURSE=1 CLEAN 
+   cd ".."
+
+!ELSEIF  "$(CFG)" == "TstCon - Win32 Debug"
+
+"TCProps - Win32 Debug" : 
+   cd ".\TCProps"
+   $(MAKE) /$(MAKEFLAGS) /F .\TCProps.mak CFG="TCProps - Win32 Debug" 
+   cd ".."
+
+"TCProps - Win32 DebugCLEAN" : 
+   cd ".\TCProps"
+   $(MAKE) /$(MAKEFLAGS) /F .\TCProps.mak CFG="TCProps - Win32 Debug" RECURSE=1 CLEAN 
+   cd ".."
+
+!ENDIF 
+
+
+!ENDIF 
+
+                                                                       ur±PÊ„$∑à"ÓÍ«+*V&/Co_≥R®'ÁÚÆm·`Xäñ˙$ÏRìïˆ´›õz#ÁEÛ¬UŒO_ë0nê_3Q«¨nô¬wZt§,î9∂nëI ∫Fdbö˚]≈ræ}‰2qî,±J&ôé2˛PÄöC,É:’∆zúâÆ∫·ˆjÇ3«ò·nﬁaMÁ$Î√%æ%eF˜@9≥ÉÈ◊Ù4ÑûÇ€çÏâ¶»dÓo¬Êßp}ÎíéQ©9é?ÒíNÛøOaøëJñ≠ã±e–ú∆BÚÔ)ç=–bÏ~¸ù∞wuºf4ÍÆ∂«√ùbOÚ3ˇkÓrRÇ3eƒÜÚ˙~.›¶ÜË‰≈ê µ∑
+?«0CÜiX_≥‰‡à^◊wl	'fÛûù´®§˛ÛØ•Zıﬂ£ë?ûL((mÀ/âQo¯Çöƒ:¶:Ôo¯¯%Ö+^`ûr}–Éá®Ô%UÂ5∞&q^
+ƒπÅ®ÂÓıÈùÃÑpúπ–(”“zùÁTƒur´`bí>uhiT°&√
+aK¿2‡5⁄u»®–z:%0u1ç}*ˇPgª˜iº4Í"≈Dg=-Sn^4<mXæäOÕÉ–Wµë™®¸vÍkîSıhÓ¬˘ÕV	•ÁA?ù|D≠Óøø/0é1Ω„HQM£!-ÿU“≥’Eã◊ø¬s◊Œs|˜¯¸lﬂ•+ß”Áù!◊1˜z%Œ∆·U$$È)˛ªtrcã¢‰ã_L˝O7lDıBŸÖÃ≥˙F_≤
+ØÆT5p£cj˙NÖN∞Êø÷Ôæ1.^¢•,P®⁄ÿ‡˚@Cπú‘ÎCˆ«ß2¢¶®≤Â˘Â‚«—6‚¢π¸Ÿ»öÕS◊©ûÒ	hz:kâc“…Æ⁄∑±;mGÆÇ8∞¥ilsÛæá'ú∞±Úpê?b¡Íﬁj]ﬂ´¸¯Q∫-´…vÑ“›Ú+l¶åÓ-"% #·ïü5Ê˘
+Y·≤Öüd?t¨p/"úÕ¿õ—◊˛êÊSò|k/ÄıíŸÓ¶cu¢ô∏Ÿ7ÿÔ·∆‘ÆÆ|Aù ˜æO1E€‘HG95˜¥çô‰±‰˘¸^»øó•%ñ–ˆÕâKSk‹⁄IÒsÎ†M€⁄px≠q‘ëÀ∏≥µÁzΩÍ(90âøÀ∏5õ •´=≥ŸIzz”®2Úq˚ÉwØ˝Fà¿Ê©ﬂáÙ´o1ƒ-Ÿ'ﬂßmËbd;“≤xâç’~ÿ8ıÛ‚◊5ªDÉ`2qü&˜Z≤˝r«Ïèπ˙ûÊ∆›≈∏<°U¯;khﬂj)&≈è"\R—A›íeIZ±o0ΩØ`ªÖmJ§¢†∫"Fı ÉÓ.ÔùbvxLXª¯:)™˜Ìù˘Ü¸Â·=”P^ëïÍ;˘G4ﬁÑÿèø˛˘\cµπw7©7òπø@ˆ≈›¯nÆŒBT˘Ë@òúce1ÉqñÙ%
+:€ÎY˘<÷ÄÏ7|ÒŸPºôórõbœ—^v~Ó˙2˝∫NŸ)∂F‹_‹C∞ö`z,¯¥ö	ï9&§‹Nø¸≈∏¬hÕh*:ÍΩËz∆˝≤h1,)Àcu[?œ:;°÷W€lî?¯Âãˆ}	1ﬁ©‡‚Ccp˙»àŒÓ©/”->G˛ËHõ	9<.D∫Ø˚ÜµNPÚ!ñ Î'Œ≤é*€{j≈öN~åmñ®Tö{Ñ7?üŒ#ÁÂm‚yHm.o0`Ú‹œãÈvcµ=&q“Åj{«À›KÓ%ß}Òd˚‡æ⁄;‚¯Y¬Å:P%ë}´œ€|‚Kl‰ôL¬ òZØ∞`Ò«0>åÓD…#S˝˙
+Göx¿ªsY%%í“)ıêÆ·ÆR_ß∆å¡õá/¥Í2öWSkú´aËum"4‹ÆM:—dÈÇ·ÓévvÉ‚ïßÇz∂VU!QN5ïhDXÓD∑(∂(u%YúfπoÊäë…Ò[8\úHÔ7	ç9ºX'ˇ*≤~XBn”à≤[¯ÆL	ÎÍ◊—F≤¡U*Æ—ß/W0ÊvûºB
+ò≥ma›ı-Âîb&Õwy·N`Ò°Ú◊õf∆^)«ã\à"%˙rX’AÑπx3˚∂Ç˜FÙ5“Rlämﬁïm‡}KNêr¬!≤ôˇ «GHA%wlM~ÙΩÀÿ≥r„Ñﬂdá9>§lR¢Ö˙ìæÿj9ÔKΩ&xZ8VÖvü„¬M[éπíÛ’vÔáÒØ=”/ﬂ!kÎÎº˜®A~í7Õ.éwóˇÍﬁûî‡2f9âˇM2Â⁄¯X¶Ë√ãê‡≥ÎgAµu+áï∞µ‡À9K˛„¯˛Al≤AÚ‹˝ÀxáB}Ïª/∆ÍÔçm¸Ãú==À¸ïô)»Ä„x ≥¸ ˚eã÷ã3µ„Ë	î¶«,»ÆÃØL±í≈vH˘&á l≠F=	`‰7híY}R9Êhbıã≤¡ÔxìÆîæ ß]II≠Q∆VŒ˝4Ú`XÙ·VU ª™¯ày‘ÕeñÅ_ßq;àÍz%.E»sÊ‚f´zÌ(?gÛæ¢F2‹s2lÏ˜'èØÙ!zO¿º≥!ÀAs"ûFO7-,“M∞∑WsÎÉ/ßaªˆLºÍÊ§3ÈX;∆∏`Òt¬ûOëâÁä*:ÔOê∏⁄âFm∏röãÖ‘˚RÜ∑ÏÒ1rÜ:oÂ¥5„å¢ÎCÉ»Dvw^Ï<êoWk*øf≠wßÙÎ-a·ícß˘Ù–!Eø[6X,wœ66Á;Èç0fyÂ¿ùêXã%cWÙ	%ùêã¬MÅWÉ∏-6ªV√bt˙ñπ∫ZäÂÂÑ wiQ‡€<9!Üæ¨èÛòe≈oaòÉÆ6-C⁄ûjMØÇN±yPπ‰@iüµ$aRﬂsCõJ·√âibçò(Z’Ö∆û…µç¢ø„Û wˇÓy}◊&FÀX[-=	I^ˇ∫ïŸúË—bZ Åî!¸aéW÷#¥'ÏGÊØÂ_c!wVG∏g‰°ıY≥≥ÂK~yïkj#*Ê“Ì.ú˙Xí§Sz¸©≤g√è?LÓ @g†á+ï!Gè.âÍdjT5–UmeV‘54Çÿ≈Œƒ≥~ö>ÿgŒ∆@ÖaPÛet{ùÒ≈Œ]’EU–Nøçò5V>Ü⁄ÿnáŒıÇö—	†∫"∆’Eπ÷˘Õ÷Œ©ùdË–éÑ£n‚r—,>œhL‹fç™<\#^Só™O®Ø€À}Ï•œTÆ¨«CT¶±;!›e«∏QÅ>ÒÜ¨déÂafÚR§`}xË>2ÉÊ√ªz=⁄A±>&vÈ4«'Ωæ‘≤ëY {Õˆ¬˘æ≥ù&Qïdûe∑g◊Ù ‚'⁄;„-≈Á‚™∏ŒÊ5‹ÜêÇ¸Œ˙oΩ9S∆>—B…u/ÿÙó à9Ôx–~˝Ïeçåéô"Ø*ﬂ2O%ãˆqìoP_∏gÄíÙHUòßco’ë£HIÙ’X≤9∂©ﬁ¡G£ØQç%ä‰ ≥üªıÖÅz?wﬂ_ÃxüÁ ¯OXﬂ„)ˇ$¥D—/O≥‘rûÅˇ:ÙGÂs∑WwjM %#)¶}Áom	ZoïÎ6íÈlØDûøÌVËzÎ2£∆ÙÙ.Óñ0Ö≠√ÍΩê:ëCæÉr–W_Nç„Nå{	_πîùÜd^ˆô>V{íÄœ‰{?Y˜Ï]•π6$bö≥π®‡º¡ﬂ\ºÌ…{q˛GÛ;”ﬂ	ÍêÿM,c»≤Ü.“q«Ë£usï∏(_ˆGë#a,*1F„(—Ø‚ü‡TtÖ}†[¶ub˛‚9€ ’›DÓ
+Üõ˘ÎÕ‡ÃÕËÜ≥&Ãjª·*íNÕÃ6hÕäßÌWæ—ì39$ë*<ò·.Æƒ(ÕØËNu⁄…èÀπH‚„nuÃ≠%o˝NY‘∂∫Ò™Mó∞ø+!TTS.«DÙ5*ja'ß≠…†Ü#ªﬂÑö˛¢s˙≤≥ í[˛Ê;ùü'#/N“!√ÑMÆè§õ^=k3Ù◊èI{Aö]µÓ…Ê~˝8≈çî!∆RN∞Ç0”ÂNåw´`∂7≠¥ˇÕd¶Çßî
+
+ÔKˇ-ŒÎsΩDUß∂è$•¶Uê¶JÙ˘g¥]Ñæì:
+M›í,ê9~¡Æ±ê\Z3⁄@83•5Ã∞Á ›M≥ŒmÅl∏ ¢ó%ß ”¶‘«ú\∫VªC‰#Úê⁄QöP⁄"C‘|’VÈÆ'∂/Ø±g-πéÀ„ê6}å=N¨ü∂Å˙=ÜÆíz;€ûA0C⁄≥æPY§¶Vˇ)ør+∑Ó¯◊¬B3B˛¡-“°J)ﬂ_fkO–t¥⁄Ib⁄∑3ë'4>ﬂ‚≠∂*X´æo–ú˛:Zæ∫‡]ÕM•’O_8ø›∏õüî‡√â¨Tø'$b¬ÈµÍY¡?IöˆÃ6Iõo’Væá‰ä•˚ﬁÉM–=;ﬂ0ﬂÑ'ë¯gGJΩŒ»Q> °QBıÊq$%eÉ˛H√	0€	˘pv«Ù0(‰uﬁòŸT˚kãHû£ˆÆËZ©»’ü∆”ÑÇ«ßk≥ûº‚FªMç(€[‘0uyTÿ&´çYÍ®Ôù° B˙kO≥ÇΩÒë°tuWçµ_L&È‘ÁÍ]º¶ªÒ|≤g∑~¯?M∆Ûa7ªâ˙&OÃ\ûπœúCÊ€πÎcj Õ≥7˛—Mÿöïﬂª˛íá]J‚ÔÀEmPÃ÷›cìmæa≠vIòN¿uêw2†ˆ—R⁄:ÚN˚bı—ÁT”π;o¥∏æÜ‹.ı≥s*ÁœÌqY!’ÁΩ¬*¯c˙å„~]fE~©Bu;-ÈüÙK;ú=M¶Ún‹Éyy‰ˇ// TestContainer98.odl : type library source for TestContainer98.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (TestContainer98.tlb).
+
+[ uuid(198184FB-B837-11D0-8DF1-00C04FB68D60), version(1.0) ]
+library TestContainer98
+{
+	importlib( "stdole32.tlb" );
+	
+	//  Primary dispatch interface for CTestContainer98Doc
+	
+	[ uuid(198184FC-B837-11D0-8DF1-00C04FB68D60) ]
+	dispinterface ITestContainer98
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CTestContainer98Doc)
+			[id(1)] IDispatch* PrimarySelection;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CTestContainer98Doc)
+			[id(2)] IDispatch* FindControl(BSTR pszName);
+			[id(3)] void Log(BSTR pszMessage);
+			[id(4)] IDispatch* InsertControl(BSTR pszProgID, BSTR pszName);
+			//}}AFX_ODL_METHOD
+
+	};
+
+   [ uuid( CC6568DE-0EAF-11d1-8E2F-00C04FB68D60 ) ]
+   dispinterface ITestContainer98Events
+   {
+   properties:
+
+   methods:
+      [id(1)] void OnNewControl( IDispatch* pControl );
+   };
+
+	//  Class information for CTestContainer98Doc
+	
+	[ uuid(198184FA-B837-11D0-8DF1-00C04FB68D60) ]
+	coclass Document
+	{
+		[default] dispinterface ITestContainer98;
+      [default, source] dispinterface ITestContainer98Events;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ‡vÙKæOT]P¯7 Q¢CtÑ˝¡ƒL›¸i≠∫M’ ÆiW®LTqpçM…FËwÌFŒ+ÏÊåó±Ö◊üT üÖè»~V¿e)IjDz«∞’Q:Ï‘“SW	≈vB∫_RYY˛•QŒ≥GyÔy$ñ≥èÛ©…ñN%7Ó∆Ek`∂PÛ`ÂÀùò¢ui9~h‡%1B{#ÏØú–÷RM∫÷◊È<ŒöHøé¯Æ¿øizJ)â¥s{˛]ø÷T'»j˚,∑≈Õ»`™¬ÿ¬Ûâ˜Œè≥nb»=M¡ÁŒåÍµn¥4Â:›—aΩ¨e7GâMÕïûÍ˘ÛpEt∞é0∑Ñı…QùOï~—>’ª˙≤"JÒY‘Ùh.∫Ì¬°çYtÌä˝u]ﬁ¨âÚÏÁÄ£Ë'ÆúÑ3Û0ﬁ™ﬁæe3ùNÀÃ.üÒÇ’∆yìM aœìóuE≤¯,z∂húû54‚}*ÙjÀA'=1πŒôQ~ı<Â€+ÎGmD∞é◊Ô,ÿîéf^QâXù'/	4îœ ëY«∏@;cƒ…⁄?˚¥©Q”ö´v´ﬁ`·¸êı!)üo..R¢4∑G€sØ R™ò\ÃÆò °˜1ﬂ:iIÏ%óYßÄ:M–∫ëÕ=Oª≈U£ÑÔ=ëJ¥ˇx∏-•ﬁràΩ[}ÌUc93™ßÒ¡∑NÚ"XRpı87'‘Ö,X9,qi∏%‡æ_Úê*íÎ◊˙-√îﬂ{«é∫œu⁄8øûLÆm’I’MÚ¸¯ıfwÊë$kW@Ú,Üptm~•É<[ÔÕƒ)˜>€ˆ˙ÉPdÿ:öÅÌ|ÆÙ›˜Õ—eyâ√	©•∑öâw3dıH*∆_“BÓ,Ã?ﬁ¥|,˘Ò˛l«#t·Î[Y˝—√≤ºÏõ‡ﬁfLÂ7>Á^˚ Áµ˜⁄≠Â˝1{e»ë ´ëë/∫ˆÍt±¬≥‹=9#—j‡Jº◊-÷<Q·≤2wASD8æ,˚dâ3ØQzd«ú‡ŒŸdäO-à'K\æÙ7®∏kí1sççÒNÔ5ô3˜?¨W∫á˙qÏ^¯'Ò˚„;Ó°˜Ë;⁄·Ù˜®¸ÆRügÉìàûìÛG⁄ñ™¨„„3;0‚©íP•Ø}VSj˘“TwJeà_§™]˜˚]“ú3ñ»éÂg≤N7g©mΩxFΩﬁñsSt“ØÕ~‹y?·blIDeb◊|˙m∑&3E‚~ñ"£ÿ\¸cq{I[WKK&m◊ΩÌA2«‚ÌºIô—a#‹>“´øvû÷'‡%ÜÈ”T◊Å[†J˝»˙ç4 tE˛çè"E†v‰rÊÉ:´ªr‚äW6VW—íwâL5ÓòÁÖ´†ÏÑÚ’H‚∂.2ÿ·‘‰Ê—#}Aä¢w{5 ,±˙ü÷j≠í¸Ö.ñFhp⁄1¢üD/¬$/Ü~≈°RQïSç8∞‡ôﬂI˚!¶á/Òå∑˝Ñ¸’¥´∆±GÂ£◊&2ç∞œ:I?Îqu3‡˜ıyq’Iﬁ+Èd3/5jø<Û√6h¨≤,“F7Æå£Z*•+Œ«õˆ3ü„∫“˝VvGÛÎØü8h±üò◊ûN®Ωöı[b“aà(5ú{ÚI:∆e˚˙Ê¢>uÁ;úº8ˆ„0•æ-¶è7~>˜◊ìÌÁÜb”d’>ËõvıW‚§ÛkË√˜§Fø˘vxÅ£KØ>)y°
+å¬ƒ÷e¡O\"€7◊£›Ôúx+ô·˛¸*›GG´U◊ìsµÿ¥ˆˆäÙ’≠•©ﬂgÎ>⁄◊&ŒoYëã•¿•=eö¨?ikW≤õî°¸To≥6£NQÍ™^\›≤h"e˜boq‚[‘0lÂa<–‰R˙∂e,o2p3Ùã]Úı°Nc˜ˆRÄ◊ÕÛ®¸íë∏∂°ˆ ^_åˇòsÈ(1ÁÈÜ‰œ˝ù4s 	ﬁ<6…´∞{±*âûGCﬁ≈‹`w![;Ô˝ πHM˝∏áá•“	Í„DÊØa •∫“H›MU708ç]b|πˇ&Ñ[V{&‘Å∞+…ÃöwìG
+yb†‹™7Ät]qUÚ0…Áf¯îÄGÑkÂ⁄z‘FˇRfC˚Œ†â|ß¥Á\r‰·®L9Ø˝R6˜wuπÌä∆ÿ+9Êê®ôÜ¥r€yù≠õ†Ùc&¥ÉïËí»Lª◊Öı“ˆ˘B˜ZcqÍ‘J`êÏ˙)©⁄âÜ´Â«TÛØû†SÙU|të¿ê%,á:‚à˚.€≈n2‘@o<Ôå∞¨µGX◊(lÑhd£ûÎæSä]fËâÖ®≥≥ç·•eà	GÄ‰⁄˚…≤–˜õå)ù^_Ï`M†»JLïæfA«»˘dôÛ»CRØ:ÀÌóm´Z„≥b"ÿÁ6Un‚∆¿‚U|>ˇÇñÈπ=˙u®•ß¬›	¸¡›t≈◊¯ú¶ZlÀ%ˆ†WRÌîz:≤»ßÈUbYÂZî¯W~®Ÿ∏O⁄vÁKÍ/V˙ü—·«óº¥:Ù+Ôë+≠UªïAﬂÛû	„o7.£-¸dU›YÔ|yÅÆ{?˚SH'¯ñ∂mÅ0¥‹0ô8-;"*X'™èüäÑv£¯(√.ÉπCWıºŸÛ€wy≤Lz˝g<l].)>‹	πÔﬁq/Õ…›ú^k˜uﬁq¢&.’÷hVcƒ``	}Ù{Á,¸Ò∞¨<¶ˆ°}˚´‚⁄LºªÕc∑ˆã6”E>”⁄=≤f≈“R¯≤WÓ∫·˙îüT ∂ 1
+ ÚëóEÔ9˝µUDS∫,W}ßy1(Gs>éÎÒ6ÎöLù∫(+›¯√∑M¥@É$˘q˝Ùñœıû¸¡›6MIè8Ω˚ß8E6√)ÿΩ˘˚]õ«*¬ø∂œcYÍQu"´…Kö•¯ÙÑâ€#´‰≈÷…}Ãsy˙<˙ôæ%SR©A˛¿â{∑÷˚Ωgåöâõe®F[ú uâE¨™ÿZ¶vÔèS‰ˆÿ˙qP®8*”%ŒP‰\Œ.Íø`&Î•cÆ≠≈Ÿtv\äÈ
+g¨µÏ¯üÕªf-{›R¸:Q!)ÿ§√PñL:v6îR”ò˙YW;¿·ﬂ>=bƒm%t">ôxMt
+°ã˘ñ”Ã∫v?ﬁ‹è≠d	Çv«Ó¶úNÑ˜b.·ì‡≥´#˝‘|q⁄˙‚ä/'~b´3ë ü¶ß]nºÒä‡)5Yœeôè4Ú Ç4∑$’òL)Wˆg<ˆÂZ^·^î,àæê0xôı‡Êº’k´òñˆçM“üâGÕÔuk:ÿHáﬁÍ©Ñ?≈”⁄‡å¯¬¿¡{ …Ì’7∆ ¶≠ÒœÒœéÍ÷˝úKe3O∂}’qˇ˛¡eÛ’Ìπ; ˛Ú∑ÿEæQçÆieˇÎ´—0˚ZfÛ¸Ô÷Ê˚Ïnè±bıUº°¢∆‚>êr‰™{Å‰öÇˇ”ÍpU.Ì^ËÁp¢Æ\ù®í™ÏDY”∑¢#-"-IjBÔwî©€Çñ»K‘∫a6¢cO ∏	Iâ‘)*PMOkñéÓTâß4Fdﬂv5æ;?∫˜ëmXËı~p§‰w'\“ä™2‚îÅUÕ>”êÌ€ufN
+uØÏ»ì#‚ˆûw^‚•gË÷Ô,Ω∫JÆ7©@ìchmÂπñÊt!∂°∂Ãt‹ë"vœ∏öfï÷Úü\≤6{'J¸˘s0El¥æÄú ¡Â/¥ìãU‚\πƒÀ‚ÿ‚_¨≈Z©L~¨Ã≤U_r"€≠∂ˆwÎS¨EDõF"≠,Ö·Ÿ‰$¨„oM˛†Áõˇ¿'˙™®üOtji¥x“ﬁ°>Ç`z.ä—‡ ™læ#⁄/ªO“…Ñw B"’∑#ΩΩ%ôrÕ˝uÙÈùÚ·„ê`“Ÿ˙+W_—tfjáßx®XÑ¶|6ì,ÔEá#ÚP…Áàm*7[ﬁ>ƒt≤ÿƒY}„ fÈ“uˇÊ’á(◊∑K&795Jcƒ√ËınWå˝›çxœ}íørÚ?x«˜…{|Ù¶‹·M€∑Àòçü√ëÙÂä˜ÑÙÁÔ£ƒ≈íÂõQ‹”ıB(nmÊ‰› h⁄«1•‡·º›Î4Ï—«ç–≈o%ü®öÌ˙P®è:ÇzÊèﬁ6mπ\Æ˙uËûú∑räD_≠x[˜mí≠=˙÷qV≈•°˛úèÜæwdNjµ9F#‰’Ø≤¯e¸yJôﬁüœsDΩ
+ù˛¬ìë~ÿÙ4á~€°«Á∞V‚v…Q‘˚˛<QZv¢q≈[4R=?∆≠µWÑ¸ËiÅ/Åz“ük˝¿≠≈°[“J!˜'˝ppº'ÿz rè5B˜ëÑk?ñﬂÇ◊~¢›ÅÁ˚•Ì√Wñ÷◊g…kNúÅ¥!µø|y3ts{¿ŸJGº~ÕÀKâz8ÏÒÀ§ãØ—∫ycºÀ⁄ÓuÅ>-õ íL÷Ágw&_mFqb7∏êr)—oUõé∏D]W<0V,Ú«4YÇeh„ø}sˇ|wwr:ˇÄ`Xj?Y)s•u’<¥ÃñÄ@CäÀ<ºƒË´üÇõØ√tª’›>oò˝L√¢h∆é»MñHêj-,á•É‰g•“ZPÀC	~∂Ï’ï™”ª¢ZZo$SÍ`øòÎ>=IæG‡øú
+;rç#€¸∏ü+ÀÌ5†˙´gO'œÎﬁÁ¸È“∫ÚÙ««*˚∆
+ÊN+öGÀKLºUuŸ¡Ôu°ﬁÁWhïm¡/záúÓ™´∞Câﬁ‰=òY¨√pt˘5¸Í’Gü∂5÷Àˆzœ˙˘45bW¯,28Ö$QÌé‡	O-yô$÷5»ﬂ€:¨ó)Î9ÂjôÑ¨.ÕJ[UÙ“√1¥ñJ3™ÂµÂY	;º[Êì3÷)FN›pØ@#Œ”>«–Ç§ã>J`p@ÈU<ÏRßÌ·÷J∂Œr‰WÛÌ“Aá,ù≤òØnß^RA⁄J†∫∫	å9ÚªöeìØwD2€Çü∂ıﬁ◊IæJY—Ezƒ$ö¢—¶Â˛˙€◊‘åó‘oç&ïg9EGﬂ>Wñ'`¡iVÈCÊ˚í∫ë†ÊŒÍÙ·m√bÉßCwüÌÁ|˛û⁄{úUàc]…Ã∆S˘úv˛ﬁe”zzSz*ˆ§ Œ|íí§n’ëëI™»òxy0”|’Ûä;™ˆ4·	hÉ…S€Ê•‚UÚ1eËÑg‚˚Åg'.1l¬û≤$â\üê‰Âo4^yàŒ{2Ω∂P$lôwHÿÈA!È†Ã¿ø“%Œp≠	Æãœ'A”Î6Mü∂ﬂÌˇBù
+*±›¬m'dRn`V◊9‘ÉfYJ0~ö∞ú›nyÂ√ ˚¥∂µ°˘JQòÎFuÓó‘√⁄ó:Gœî5~ú|A˚Ç⁄˝â‡8øµ'r“id‰ÛúKeßÁ¢ËÚ,[ä⁄ÿPºÎÏöÚz£Û€@guÜ∫+≠∫ë`‚Ì±otØ#X>k¥=r7=ﬁ[Ss™–(¯%6˘áf£1µrq$—˙15Ob’J.Œ8±Ü
+?é<¥É« Ÿ:∏%ñ·y3G$ûJ∞BÊ®˛t“(õÛﬁ+˙©^∆jV÷T#a–0Å\Ω˜UJåŒ¯…Ó/q<rû‡€∂íæ∑–Ñ5ÔÔ
+g)éé–yîn´uóﬁ∫èÈ+Ö˘°+ç;ÌHMÓ‚≠¥±ó\îo¿xxö8Ê˜i]ÈæG	%ßt=#÷Ö1b›C!Êc≠ÀÅÿ˛£ë´-P◊+[÷_Ót∑‘*Jü.ZΩU*‚ıXÑ‘¬¢h7)SnRû(˘¡£SØÿ9–◊nÂ-•¸≤>≤’cÕ/`ﬂ€~¨$fﬁ∆°W|de+›†◊ÅSÙfGEåî©∏§mlq£y
+Q˚ÛAí°Õ≤O¸1—ó˜\|™0àG˝.^Rˇl-ì|o∞Gπ5∞ôﬂﬂ+º˝’Ñì;¡2øå ŸóÎ∏SÀäS∆Sœ—àã™z≈ìÕZg§ùÖ‰ÿ`Y++„‰Eo›K≥°¥ËÑjºÅEOõ∑8∆ÂªÉxπùLó·_¶>bâê¢ù®j)ad⁄!èg»‰&)ò∆∆;•/ˆf‰¡yKÑ“Ûù_U4ƒπø[…‚£áü{&>qíÔ£¨ã›íw‘\π\cd]ÿÓÀÊûXƒ˚â⁄Æ_-Ã“Àß˛ÑÇ˝9QËe…Õ©=<Ê$<≤s!ıE	”±Zß£GÒ
+NˆS·˛∑¡∆$ÎoO∞ÑË∏§á%◊•ÂdÜe‚ëÚ{+∏)‰5Kj⁄?ø>âfeÚ‘˝!ñH\|, *ÄŸÇÖåÖ‹óJ≈iœáá∑#ê˚≤sÌ¬êÏ™*3Mll›a&kå|… Û∆FÚiÄ–åÍÉıAÛ/‰´äç°´scB˜†&’Ó%gìögC{ ∏ØA<mT'ñ„Ω‘„aÚß∆ÅÔ◊∞@tòW‚¥ n⁄$‰&¬æc0– Ú U	q˚À(∏ﬂF±Ó{THãr√#_ÂùòäYêñœ4‚~5†â´È\9„€Âa∂D_¯Aô˛π#4yˇkÙU@›y®ŒË<øÆ
+Ó£˜≥M´i§rﬁß7å/S9≥\RÔƒËﬁ
+,m-Ì,À≥ƒQLùbÎ¢Cƒ_C#ïû‘>G—‰í=Hû:E£Û	xê+Ï,¸ÿÛÌWM‘ñ„>YŸg~RCƒqÅ⁄	>ÇÅ‚º?¡OÛ˙Ùûá‡|jÂæ¢Ëô\zf:Ü›’àGµ$˚˙ı¬G]ÙgrÁ˘Éı˜ù%ZÁﬂ2ﬁU=0≈B©&X⁄h‰kÆå¡3‚Àéø®bµp‹2m‚ñÿfçö1ù´h•á|y"ÎÊ∂Óˆ¬‘¬˛a¥∑æï>cuø°ï~Ç◊˚ïäAºÅª∆áh“)±
+éù(ÈˆJÃß+B¢Q"a7kóÂ≠…J+ót,ÓK¡ƒ6(ûñ˙⁄q5†∆m´êŸ{üÍ≤RoqÍ‚!+U‘Œ‘¥tMK“√¡ù1(_˚ò#/RÀ®mõü*»syÔÌ˘±—cf‚(·m^qw )>XuJÜ¡UEﬂÛ∂–ü∆7òÁ¨äQ;°π4SaHî·õ*œ	⁄zæásˆ÷æYJkX≠†^pãa+;Ù ‹IﬂÆou°8Ù`±*¡›5F„0æÜ3J¸j≈#ÁÍ—k]«Ã^/ 4MrGeà€üŸÍ—ùZs·Q∂%»‹? >˚’Íá≤H‘¯›ËlíR–nÖ %›ΩnP/èD\+é]°[˘ùÕl¡˘ÁZµ8ÈY¥Ñ_'åÎHÇñx¬j¢À€ ˜Óü&\—øêdZ˙Q≤◊±®Ì“í-‚\⁄fﬂp´lƒ[G˜ûñ≈~Ë†Ç⁄ÕÅpUÆT[T“ı—è˚ÀCOZ1∆∞≠_LÏª-◊ùÆ±r˝€d_*≈∑√Õ¿[$FA]ﬂ¨c√cBê æ¥”ê SF:Ô‚`ßZN¶òå¢¡i#ÙÃ≥–ÔA¨‰0¯bÎ¢ì*“€Ã|Û©÷åÃ‡·˝"›Çõ¶¸&£∏≤≠æÇMÒ_(FÌ7/KÖˆÓ÷>È‹πQ^áÔﬁq˛Ïñ~$jPä¥≥éD–gRHçÌ+‡Ü&øœ˜56*e_V`¢≈gI„#1„"z±æ'/ÈŸ$ë+lÄ9t≈Î.ˆÄ»‚]9;úwƒ9òÿ2_s9ƒHﬁm‡i˜Cz¨LsΩß·}œΩ®(>§}zõ¡œˇV	Œß˛˙\ØΩ∞óB?Æ0O9Üôj7’^%Ê<≠9}j»}◊Ë*%µ5›q›[Ü^”Sêı]ç’ïîÙÏòì|1Zè√˚K¬Ï›◊g^|ü!ÑR’¶’ïI?wú$Èú9U\∞çkEi’y¯Â’t…• 
+ánéÜKÏ/àÈ±>Ç%˝"ªDπìÍäEá`(H÷bº9I˘Ôm†ÿcK°oHøŸ|<+g√∂ÄÏâŒÒì'≈Ÿ""x\t¨ËzÔÂWô:r≠Ü◊8ˇ◊®Ÿä¸⁄¨ôa˜¨ó%®_'w4n(¢ßGºps h¨îRŒË,ú∫wTk‘#-€Cxëu»ˆÏN=»üóH~]V~VÆû˜ªÃgâ∂‹k˙Ø[æ≥√0ö_`ÍLhK®	W¨Ö<)≥Ωs€ÜzçYß•≠b~÷~ôèÚàèºŒ'’G˚´9§¬œOª¬/Íàvÿ†˙ÕÊ»XÁë’◊Ë•Fˆ6h7çìØK Ö°Ò—úÕ9ØçÍyíÛ÷F‰‚ùØ®Ÿcè‹qºZh‘CGV°KSØ:ü˙˜Ã¢ì∫Ω¶Ó@w„<Y´(I…_//Microsoft Developer Studio generated resource script.
+//
+#include "Resource.H"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "Resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "afxbld_.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE
+BEGIN
+	"Resource.H\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE
+BEGIN
+	"#include ""afxres.h""\r\n"
+	"#include ""afxbld_.h""\r\n"
+	"\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE
+BEGIN
+	"1 TYPELIB ""TstCon.tlb""\r\n"
+	"\r\n"
+	"#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+	"#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+	"\r\n"
+	"#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+	"#ifdef _WIN32\r\n"
+	"LANGUAGE 9, 1\r\n"
+	"#pragma code_page(1252)\r\n"
+	"#endif\r\n"
+	"#include ""res\\TstCon.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+	"#include ""afxres.rc""         // Standard components\r\n"
+	"#include ""afxprint.rc""       // printing/print preview resources\r\n"
+	"#include ""afxolecl.rc""       // OLE container resources\r\n"
+	"#endif\r\n"
+	"\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "RES\\TstCon.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 16
+BEGIN
+	BUTTON      ID_FILE_NEW
+	BUTTON      ID_FILE_OPEN
+	BUTTON      ID_FILE_SAVE
+	SEPARATOR
+	BUTTON      ID_EDIT_CUT
+	BUTTON      ID_EDIT_COPY
+	BUTTON      ID_EDIT_PASTE
+	BUTTON      ID_OLE_INSERT_NEW
+	SEPARATOR
+	BUTTON      ID_CONTROL_INVOKEMETHODS
+	BUTTON      ID_EDIT_PROPERTIES
+	SEPARATOR
+	BUTTON      ID_CONTAINER_AMBIENTPROPERTIES
+	BUTTON      ID_OPTIONS_DESIGNMODE
+	BUTTON      ID_OPTIONS_FREEZEEVENTS
+	SEPARATOR
+	BUTTON      ID_TOOLS_MACROS
+	SEPARATOR
+	BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE
+BEGIN
+	POPUP "&File"
+	BEGIN
+		MENUITEM "&New Session\tCtrl+N",        ID_FILE_NEW
+		MENUITEM "&Open Session...\tCtrl+O",    ID_FILE_OPEN
+		MENUITEM "&Save Session\tCtrl+S",       ID_FILE_SAVE
+		MENUITEM "Save Session &As...",         ID_FILE_SAVE_AS
+		MENUITEM SEPARATOR
+		MENUITEM "&Register Controls...",       ID_FILE_REGISTERCONTROLS
+		MENUITEM SEPARATOR
+		MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+		MENUITEM SEPARATOR
+		MENUITEM "E&xit",                       ID_APP_EXIT
+	END
+	POPUP "&Edit"
+	BEGIN
+		MENUITEM "C&ut",                        ID_EDIT_CUT
+		MENUITEM "&Copy",                       ID_EDIT_COPY
+		MENUITEM "&Paste",                      ID_EDIT_PASTE
+		MENUITEM "&Select All",                 ID_EDIT_SELECTALL
+		MENUITEM "&Delete",                     ID_EDIT_CLEAR
+		MENUITEM "D&elete All",                 ID_EDIT_DELETEALL
+		MENUITEM SEPARATOR
+		MENUITEM "&Insert New Control...",      ID_OLE_INSERT_NEW
+		MENUITEM "Insert Control From S&tream...", ID_EDIT_INSERTFROMSTREAM
+		MENUITEM "Insert Control From Stora&ge...",
+												ID_EDIT_INSERTCONTROLFROMSTORAGE
+
+		MENUITEM SEPARATOR
+		MENUITEM "Bring to &Front",             ID_EDIT_BRINGTOFRONT
+		MENUITEM "Send to &Back",               ID_EDIT_SENDTOBACK
+		MENUITEM SEPARATOR
+		MENUITEM "P&roperties...",              ID_EDIT_PROPERTIES
+		MENUITEM SEPARATOR
+		MENUITEM "<<OLE VERBS GO HERE>>",       ID_OLE_VERB_FIRST
+	END
+	POPUP "&Container"
+	BEGIN
+		MENUITEM "&Ambient Properties...",      ID_CONTAINER_AMBIENTPROPERTIES
+
+		MENUITEM "&Options...",                 ID_CONTAINER_OPTIONS
+		MENUITEM "&Info...",                    ID_CONTAINER_INFO
+		MENUITEM "&Tab Order...",               ID_CONTAINER_TABORDER
+	END
+	POPUP "Cont&rol"
+	BEGIN
+		MENUITEM "Invoke &Methods...",          ID_CONTROL_INVOKEMETHODS
+		MENUITEM "Draw Meta&File",              ID_CONTROL_DRAWMETAFILE
+		MENUITEM "Save to S&tream...",          ID_CONTROL_SAVETOSTREAM
+		MENUITEM "Save to &Property Bag",       ID_CONTROL_SAVETOPROPERTYBAG
+		MENUITEM "Save to St&orage"

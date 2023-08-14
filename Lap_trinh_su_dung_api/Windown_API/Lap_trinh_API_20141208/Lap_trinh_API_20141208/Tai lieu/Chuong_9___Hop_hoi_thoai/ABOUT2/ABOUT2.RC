@@ -1,0 +1,144 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+ABOUT2                  ICON    DISCARDABLE     "ABOUT2.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+ABOUT2 MENU DISCARDABLE 
+BEGIN
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About",                      IDM_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+ABOUTBOX DIALOG DISCARDABLE  0, 0, 219, 247
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            "ABOUT2",IDC_STATIC,7,15,20,20
+    CTEXT           "About2",IDC_STATIC,86,14,24,8
+    CTEXT           "About Box Demo Program",IDC_STATIC,61,27,82,8
+    GROUPBOX        "Color",IDC_STATIC,24,49,67,158
+    CONTROL         "&Black",IDC_BLACK,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,30,61,34,10
+    CONTROL         "B&lue",IDC_BLUE,"Button",BS_AUTORADIOBUTTON,30,78,30,10
+    CONTROL         "&Green",IDC_GREEN,"Button",BS_AUTORADIOBUTTON,30,97,35,
+                    10
+    CONTROL         "Cya&n",IDC_CYAN,"Button",BS_AUTORADIOBUTTON,30,116,32,
+                    10
+    CONTROL         "&Red",IDC_RED,"Button",BS_AUTORADIOBUTTON,30,135,29,10
+    CONTROL         "&Magenta",IDC_MAGENTA,"Button",BS_AUTORADIOBUTTON,30,
+                    154,44,10
+    CONTROL         "&Yellow",IDC_YELLOW,"Button",BS_AUTORADIOBUTTON,30,173,
+                    37,10
+    CONTROL         "&White",IDC_WHITE,"Button",BS_AUTORADIOBUTTON,30,192,35,
+                    10
+    GROUPBOX        "&Figure",IDC_STATIC,108,144,91,61,WS_GROUP
+    CONTROL         "Rec&tangle",IDC_RECT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,115,159,49,10
+    CONTROL         "&Ellipse",IDC_ELLIPSE,"Button",BS_AUTORADIOBUTTON,115,
+                    188,36,10
+    LTEXT           "",IDC_PAINT,111,54,86,85
+    DEFPUSHBUTTON   "OK",IDOK,31,215,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,130,215,50,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "ABOUTBOX", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

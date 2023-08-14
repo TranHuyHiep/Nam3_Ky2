@@ -1,0 +1,56 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model KiemTraLan2.Models.Cauthu
+
+<h4>Cauthu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="suaCauThu">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CauThuId" />
+            <div class="form-group">
+                <label asp-for="HoVaTen" class="control-label"></label>
+                <input asp-for="HoVaTen" class="form-control" />
+                <span asp-validation-for="HoVaTen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CauLacBoId" class="control-label"></label>
+                <select asp-for="CauLacBoId" class="form-control" asp-items="ViewBag.CauLacBoId"></select>
+                <span asp-validation-for="CauLacBoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ngaysinh" class="control-label"></label>
+                <input asp-for="Ngaysinh" class="form-control" />
+                <span asp-validation-for="Ngaysinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ViTri" class="control-label"></label>
+                <input asp-for="ViTri" class="form-control" />
+                <span asp-validation-for="ViTri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuocTich" class="control-label"></label>
+                <input asp-for="QuocTich" class="form-control" />
+                <span asp-validation-for="QuocTich" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoAo" class="control-label"></label>
+                <input asp-for="SoAo" class="form-control" />
+                <span asp-validation-for="SoAo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anh" class="control-label"></label>
+                <input asp-for="Anh" class="form-control" />
+                <span asp-validation-for="Anh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

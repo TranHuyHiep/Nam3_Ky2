@@ -1,0 +1,86 @@
+/*-----------------------------------------------
+   SYSMETS.H -- Cau truc de hien thi thong tin ve kich thuoc cua cac doi tuong he thong
+  -----------------------------------------------*/
+
+#define NUMLINES ((int) (sizeof sysmetrics / sizeof sysmetrics [0]))
+
+struct
+{
+     int     iIndex ;
+     TCHAR * szLabel ;
+     TCHAR * szDesc ;
+}
+sysmetrics [] =
+{
+     SM_CXSCREEN,             TEXT ("SM_CXSCREEN"),              
+                              TEXT ("Chieu rong man hinh theo diem anh"),
+     SM_CYSCREEN,             TEXT ("SM_CYSCREEN"),              
+                              TEXT ("Chieu cao man hinh theo diem anh"),
+     SM_CXVSCROLL,            TEXT ("SM_CXVSCROLL"),             
+                              TEXT ("Do rong cua thanh cuon doc"),
+     SM_CYHSCROLL,            TEXT ("SM_CYHSCROLL"),             
+                              TEXT ("Do cao cua thanh cuon ngang"),
+     SM_CYCAPTION,            TEXT ("SM_CYCAPTION"),             
+                              TEXT ("Chieu cao cua thanh tieu de"),
+     SM_CXBORDER,             TEXT ("SM_CXBORDER"),              
+                              TEXT ("Do rong cua vien cua so"),
+     SM_CYBORDER,             TEXT ("SM_CYBORDER"),              
+                              TEXT ("Do cao cua vien cua so"),
+     SM_CXFIXEDFRAME,         TEXT ("SM_CXFIXEDFRAME"),          
+                              TEXT ("Do rong cua khung cua so doi thoai"),
+     SM_CYFIXEDFRAME,         TEXT ("SM_CYFIXEDFRAME"),          
+                              TEXT ("Do cao cua khung cua so doi thoai"),
+     SM_CYVTHUMB,             TEXT ("SM_CYVTHUMB"),              
+                              TEXT ("Do cao cua dau thanh cuon doc"),
+     SM_CXHTHUMB,             TEXT ("SM_CXHTHUMB"),              
+                              TEXT ("Do rong cua dau thanh cuon ngang"),
+     SM_CXICON,               TEXT ("SM_CXICON"),                
+                              TEXT ("Chieu rong cua bieu tuong"),
+     SM_CYICON,               TEXT ("SM_CYICON"),                
+                              TEXT ("Chieu cao cua bieu tuong"),
+     SM_CXCURSOR,             TEXT ("SM_CXCURSOR"),              
+                              TEXT ("Chieu rong cua con tro chuot"),
+     SM_CYCURSOR,             TEXT ("SM_CYCURSOR"),              
+                              TEXT ("Chieu cao cua con tro chuot"),
+     SM_CYMENU,               TEXT ("SM_CYMENU"),                
+                              TEXT ("Chieu cao cua thanh thuc don"),
+     SM_CXFULLSCREEN,         TEXT ("SM_CXFULLSCREEN"),          
+                              TEXT ("Chieu rong cuc dai cua vung cskh"),
+     SM_CYFULLSCREEN,         TEXT ("SM_CYFULLSCREEN"),          
+                              TEXT ("Chieu cao cuc dai cua vung cskh"),
+     SM_CYKANJIWINDOW,        TEXT ("SM_CYKANJIWINDOW"),         
+                              TEXT ("Chieu cao cua cua so Kanji"),
+     SM_MOUSEPRESENT,         TEXT ("SM_MOUSEPRESENT"),          
+                              TEXT ("Co ve su co mat cua chuot"),
+     SM_CYVSCROLL,            TEXT ("SM_CYVSCROLL"),             
+                              TEXT ("Chieu cao cua mui ten thanh cuon doc"),
+     SM_CXHSCROLL,            TEXT ("SM_CXHSCROLL"),             
+                              TEXT ("Chieu rong cua mui ten thanh cuon ngang"),
+     SM_DEBUG,                TEXT ("SM_DEBUG"),                 
+                              TEXT ("Co cua phien ban go roi"),
+     SM_SWAPBUTTON,           TEXT ("SM_SWAPBUTTON"),            
+                              TEXT ("Co ve su hoan doi cac nut chuot"),
+     SM_CXMIN,                TEXT ("SM_CXMIN"),                 
+                              TEXT ("Do rong cua cua so thu nho"),
+     SM_CYMIN,                TEXT ("SM_CYMIN"),                 
+                              TEXT ("Do rong cua cua so thu nho"),
+     SM_CXSIZE,               TEXT ("SM_CXSIZE"),                
+                              TEXT ("Do rong cua cac nut Min/Max/Close"),
+     SM_CYSIZE,               TEXT ("SM_CYSIZE"),                
+                              TEXT ("Do cao cua cac nut Min/Max/Close"),
+     SM_CMOUSEBUTTONS,        TEXT ("SM_CMOUSEBUTTONS"),         
+                              TEXT ("So luong cac nut cua chuot"),
+     SM_CXMINSPACING,         TEXT ("SM_CXMINSPACING"),          
+                              TEXT ("Do rong cua cua so thu nho"),
+     SM_CYMINSPACING,         TEXT ("SM_CYMINSPACING"),          
+                              TEXT ("Do cao cua cua so thu nho"),
+     SM_CXSMICON,             TEXT ("SM_CXSMICON"),              
+                              TEXT ("Do rong cua bieu tuong co nho"),
+     SM_CYSMICON,             TEXT ("SM_CYSMICON"),              
+                              TEXT ("Do cao cua bieu tuong co nho"),
+     SM_CXMAXIMIZED,          TEXT ("SM_CXMAXIMIZED"),           
+                              TEXT ("Do rong cua cua so cuc dai"),
+     SM_CYMAXIMIZED,          TEXT ("SM_CYMAXIMIZED"),           
+                              TEXT ("Do cao cua cua so cuc dai"),
+} ;
+

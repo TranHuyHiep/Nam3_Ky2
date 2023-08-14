@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: KEYVIEW1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP10.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/KEYVIEW1.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Duan Data\GTVT\Giao_trinh\Windows_programming\Chuong_6___Ban_phim\KEYVIEW1\KEYVIEW1.CPP"
+]
+Creating command line "cl.exe @C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP10.tmp" 
+Creating temporary file "C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP11.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/KEYVIEW1.pdb" /debug /machine:I386 /out:"Debug/KEYVIEW1.exe" /pdbtype:sept 
+".\Debug\KEYVIEW1.OBJ"
+]
+Creating command line "link.exe @C:\DOCUME~1\lxd\LOCALS~1\Temp\RSP11.tmp"
+<h3>Output Window</h3>
+Compiling...
+KEYVIEW1.CPP
+Linking...
+
+
+
+<h3>Results</h3>
+KEYVIEW1.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\KiemTraLan2.props" />
+</Project>

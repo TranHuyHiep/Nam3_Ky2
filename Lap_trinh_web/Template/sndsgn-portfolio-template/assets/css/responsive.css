@@ -1,0 +1,170 @@
+
+
+/*
+Author: XpeedStudio
+Author URI: http://themeforest.net/user/XpeedStudio/portfolio
+*/
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    body {
+        font-size: 15px;
+    }
+	.testimonial-content {
+    padding: 75px 0;
+	text-align:center;
+	}
+    
+
+}
+
+/* Portrait tablets and small desktops */
+@media  (max-width: 991px) {
+    html {
+        font-size: 90%;
+		
+    }
+	.home-wrapper .home-content {
+	padding-top:130px;	
+    width:100%;
+	}
+	.home-wrapper .home-content h1 {
+    font-size:52px;
+	}
+	.counterup{
+	margin-bottom:50px;
+	}
+	.testimonial-content {
+    padding: 75px 0;
+	text-align:center;
+	}
+
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+    html {
+        font-size: 80%;
+    }
+	.home-wrapper .home-content {
+	padding-top:130px;	
+    width:100%;
+	}
+	.home-wrapper .home-content h1 {
+    font-size:52px;
+	}
+	.features-icon{
+	text-align:center;
+	margin-bottom:40px;
+	}
+	.features-details{
+	text-align:center;	
+	}
+	.achivement-details h2 {
+    text-align:center;
+	}
+	.achivement-details p {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+	}
+	.achivement-details .more {
+    padding: 30px 0;
+    text-align: center;
+	}
+	.achivement-gallery{
+		text-align:center;
+	}
+	.achivement-wrapper{
+		margin-top:-120px;
+	}
+	.skills-content{
+	margin-bottom:50px;
+	text-align:center;
+	}
+	.testimonial-content {
+    padding: 75px 0;
+	text-align:center;
+	}
+	.testimonial-content .testimonial-details {
+    max-width: 100%;
+	}
+	.news-content{
+	text-align: center;
+    padding-top: 20px;
+	}
+	.separator2 {
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+	}
+	.contact-details{
+		margin-bottom:30px;
+	}
+	.contact-wrapper .contact-details h5 {
+    font-size: 12px;
+    margin-top: 10px;
+	}
+	.main_mix_content .main_mix_menu button {
+    font-size: 11px;
+	}
+	.main_mix_content .main_mix_menu button span {
+    padding-left: 5px;
+    padding-right: 0px;
+	}
+   
+}
+
+
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+    html {
+        font-size: 65%;
+    }
+	.home-wrapper .home-content {
+	padding-top:130px;	
+    width:100%;
+	}
+   .home-wrapper .home-content h1 {
+    font-size:38px;
+	}
+	
+	.features-details h5 {
+    font-size: 16px;
+	}
+	.achivement-details h2 {
+    font-size: 31px;
+	}
+	.skills-content h5 {
+    font-size: 15px;
+	}
+	.news-content a {
+    font-size: 10px;
+	}
+	.footer-item .social a i {
+    margin:0;
+	}
+	.scrollup {
+    bottom: 140px;
+    right: 40px;
+	}
+	.main_mix_content .main_mix_menu button {
+    font-size:6px;
+	}
+	
+	
+}
+
+
+
+@media (max-width: 320px) {
+
+	.home-wrapper .home-content {
+	padding-top:130px;	
+    width:100%;
+	}
+    html {
+        font-size: 60.5%;
+    }
+}
+

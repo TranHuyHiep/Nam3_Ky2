@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <table style="border:none">
+            <tbody>
+                <tr>
+                    <td style="width:150px">Mã khách hàng: </td>
+                    <td>
+                        <input id="txtMK" type="text" name="MaKhach" placeholder="Mã khách hàng" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:30px">Tên Khách hàng: </td>
+                    <td>
+                        <input type="text" name="TenKhach" placeholder="Tên Khách hàng" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ: </td>
+                    <td>
+                        <input type="text" name="DiaChiKhach" placeholder="Địa chỉ của khách hàng" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Điện thoại: </td>
+                    <td>
+                        <input id="txtDT" type="text" name="DienThoaiKhach" placeholder="Số điện thoại cua khách" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="ThemHoacSua"> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <br />
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Mã khách</th>
+                <th>Tên khách</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tbody id="display"></tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            GetAllCustomers();
+            document.getElementById("ThemHoacSua").innerHTML = '<button class="btn-primary update-button" onclick="insertKhachHang();">Thêm mới</button>'                    
+        });
+        function GetAllCustomers() {
+            $.ajax({
+                url: 'https://localhost:44357/api/customer',
+                method: 'GET',
+                contentType: 'json',
+                dataType: 'json',
+                error: function (response) {
+                }, success: function (reponse) {
+                    const len = reponse.length;
+                    console.log(reponse);
+                    let table = '';
+                    for (var i = 0; i < len; ++i) {
+                        table = table + '<tr>';
+                        table = table + '<td>' + reponse[i].Makhach + '</td>';
+                        table = table + '<td>' + reponse[i].TenKhach + '</td>';
+                        table = table + '<td>' + reponse[i].DiaChi + '</td>';
+                        table = table + '<td>' + reponse[i].DienThoai + '</td>';
+                        table = table + '<td>' + '<button class="btn btn-primary" onclick=editKhachHang("' + reponse[i].Makhach + '")>Edit</button>' + '</td>';
+                        table = table + '<td>' + '<button class="btn btn-primary" onclick=deleteKhachHang("' + reponse[i].Makhach + '")>Delete</button>' + '</td>';
+                        table = table + '</tr>';
+                    }
+                    document.getElementById('display').innerHTML = table;
+                },
+                fail: function (response) {
+                }
+            });
+        }
+
+        function ClearInput() {
+            $('input').eq(0).val('');
+            $('input').eq(1).val('');
+            $('input').eq(2).val('');
+            $('input').eq(3).val('');
+        }
+
+        function insertKhachHang() {
+            var url = 'https://localhost:44357/api/customer?id=' +
+                $('input').eq(0).val() + '&name=' +
+                $('input').eq(1).val() + '&adress=' +
+                $('input').eq(2).val() + '&phoneNumber=' +
+                $('input').eq(3).val();
+            $.ajax({
+                url: url,
+                method: 'POST',
+                contentType: 'json',
+                dataType: 'json',
+                error: function (response) {
+                    alert("Thêm mới không thành công");
+                },
+                success: function (reponse) {
+                    alert("Thêm mới thành công");
+                    GetAllCustomers(); //Gọi đến hàm lấy dữ liệu lên bảng
+                    ClearInput();
+                }
+            });
+        }
+
+        function deleteKhachHang(i) {
+            var url = 'https://localhost:44357/api/customer?id=' + i.trim()
+            $.ajax({
+                url: url,
+                method: 'DELETE',
+                contentType: 'json',
+                dataType: 'json',
+                error: function (response) {
+                    alert("Xoa không thành công");
+                },
+                success: function (reponse) {
+                    GetAllCustomers(); //Gọi đến hàm lấy dữ liệu lên bảng
+                }
+            });
+        }
+
+        function editKhachHang(i) {
+            var url = 'https://localhost:44357/api/customer?id=' + i.trim()
+            $.ajax({
+                url: url,
+                method: 'GET',
+                contentType: 'json',
+                dataType: 'json',
+                error: function (response) {
+                },
+                success: function (reponse) {
+                    console.log(reponse)
+                    $('input').eq(0).val(reponse.Makhach);
+                    $('input').eq(1).val(reponse.TenKhach);
+                    $('input').eq(2).val(reponse.DiaChi);
+                    $('input').eq(3).val(reponse.DienThoai);
+                    document.getElementById("ThemHoacSua").innerHTML = '<button class="btn-primary update-button" onclick="confirmEdit();">Sửa</button>'                    
+                }
+            });
+        }
+
+        function confirmEdit() {
+            var url = 'https://localhost:44357/api/customer?id=' +
+                $('input').eq(0).val() + '&name=' +
+                $('input').eq(1).val() + '&adress=' +
+                $('input').eq(2).val() + '&phoneNumber=' +
+                $('input').eq(3).val();
+            $.ajax({
+                url: url,
+                method: 'PUT',
+                contentType: 'json',
+                dataType: 'json',
+                error: function (response) {
+                    alert("Sửa không thành công");
+                },
+                success: function (reponse) {
+                    alert("Sửa thành công");
+                    GetAllCustomers(); //Gọi đến hàm lấy dữ liệu lên bảng
+                    ClearInput();
+                }
+            });
+            document.getElementById("ThemHoacSua").innerHTML = '<button class="btn-primary update-button" onclick="insertKhachHang();">Thêm mới</button>'                    
+        }
+    </script>
+
+</body>
+
+</html>
